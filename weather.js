@@ -61,23 +61,23 @@ function getAndShowWeather(city) {
       var uvIndex = response.value;
       $("#uv-index").text(uvIndex);
       if (uvIndex < 2) {
-        $(".index").attr("class", "low");
+        $("#uv-index").attr("class", "low");
         console.log("You're safe!");
       }
       if (uvIndex >= 2 && uvIndex <= 5) {
-        $(".index").attr("class", "moderate");
+        $("#uv-index").attr("class", "moderate");
         console.log("Getting risky");
       }
       if (uvIndex > 5 && uvIndex <= 7) {
-        $(".index").attr("class", "high");
+        $("#uv-index").attr("class", "high");
         console.log("Uh oh!");
       }
       if (uvIndex > 7 && uvIndex <= 10) {
-        $(".index").attr("class", "very-high");
+        $("#uv-index").attr("class", "very-high");
         console.log("You better stay inside!");
       }
       if (uvIndex > 10) {
-        $(".index").attr("class", "extreme");
+        $("#uv-index").attr("class", "extreme");
         console.log("You will ignite on fire");
       }
       // five Day Forecast
