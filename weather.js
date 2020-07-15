@@ -34,14 +34,15 @@ function getAndShowWeather(city) {
     url: queryURL,
     method: "GET",
   }).then(function (response) {
+    // Current Day Forecast =============================
     console.log(response);
     var iconCode = response.weather[0].icon;
     var iconImage = "http://openweathermap.org/img/w/" + iconCode + ".png";
     console.log(iconCode);
     $("#icon-image").attr("src", iconImage);
-    $("#temperature").text(parseInt(response.main.temp));
-    $("#humidity").text(response.main.humidity);
-    $("#wind-speed").text(response.wind.speed);
+    $("#temperature").text(parseInt(response.main.temp) + "\xB0F");
+    $("#humidity").text(response.main.humidity + "%");
+    $("#wind-speed").text(response.wind.speed + "MPH");
 
     var latitude = response.coord.lat;
     var longitude = response.coord.lon;
@@ -58,6 +59,7 @@ function getAndShowWeather(city) {
       method: "GET",
     }).then(function (response) {
       console.log(response.value);
+      // UV Index ========================================
       var uvIndex = response.value;
       $("#uv-index").text(uvIndex);
       if (uvIndex < 2) {
@@ -80,7 +82,7 @@ function getAndShowWeather(city) {
         $("#uv-index").attr("class", "extreme");
         console.log("You will ignite on fire");
       }
-      // five Day Forecast
+      // five Day Forecast ==============================
       var forecastURL =
         "http://api.openweathermap.org/data/2.5/forecast?q=" +
         citySearch +
@@ -91,66 +93,76 @@ function getAndShowWeather(city) {
         method: "GET",
       }).then(function (response) {
         console.log(response);
-        // day one
+        // day one ==================================
         var firstDay = moment(response.list[0].dt_txt).format(
           "dddd MMMM Do YYYY"
         );
         $("#one").text(firstDay);
         console.log(firstDay);
-        $("#temperature-one").text(parseInt(response.list[3].main.temp));
-        $("#humidity-one").text(response.list[3].main.humidity);
-        $("#wind-speed-one").text(response.list[3].wind.speed);
+        $("#temperature-one").text(
+          parseInt(response.list[3].main.temp) + "\xB0F"
+        );
+        $("#humidity-one").text(response.list[3].main.humidity + "%");
+        $("#wind-speed-one").text(response.list[3].wind.speed + "MPH");
         var iconCode = response.list[3].weather[0].icon;
         var iconImage = "http://openweathermap.org/img/w/" + iconCode + ".png";
         console.log(iconCode);
         $("#icon-image1").attr("src", iconImage);
 
-        // Day Two
+        // Day Two ===================================
         var secondDay = moment(response.list[11].dt_txt).format(
           "dddd MMMM Do YYYY"
         );
         $("#two").text(secondDay);
-        $("#temperature-two").text(parseInt(response.list[11].main.temp));
-        $("#humidity-two").text(response.list[11].main.humidity);
-        $("#wind-speed-two").text(response.list[11].wind.speed);
+        $("#temperature-two").text(
+          parseInt(response.list[11].main.temp) + "\xB0F"
+        );
+        $("#humidity-two").text(response.list[11].main.humidity + "%");
+        $("#wind-speed-two").text(response.list[11].wind.speed + "MPH");
         var iconCode = response.list[11].weather[0].icon;
         var iconImage = "http://openweathermap.org/img/w/" + iconCode + ".png";
         console.log(iconCode);
         $("#icon-image2").attr("src", iconImage);
 
-        // Day Three
+        // Day Three ====================================
         var thirdDay = moment(response.list[19].dt_txt).format(
           "dddd MMMM Do YYYY"
         );
         $("#three").text(thirdDay);
-        $("#temperature-three").text(parseInt(response.list[19].main.temp));
-        $("#humidity-three").text(response.list[19].main.humidity);
-        $("#wind-speed-three").text(response.list[19].wind.speed);
+        $("#temperature-three").text(
+          parseInt(response.list[19].main.temp) + "\xB0F"
+        );
+        $("#humidity-three").text(response.list[19].main.humidity + "%");
+        $("#wind-speed-three").text(response.list[19].wind.speed + "MPH");
         var iconCode = response.list[19].weather[0].icon;
         var iconImage = "http://openweathermap.org/img/w/" + iconCode + ".png";
         console.log(iconCode);
         $("#icon-image3").attr("src", iconImage);
 
-        // Day Four
+        // Day Four =====================================
         var fourthDay = moment(response.list[28].dt_txt).format(
           "dddd MMMM Do YYYY"
         );
         $("#four").text(fourthDay);
-        $("#temperature-four").text(parseInt(response.list[28].main.temp));
-        $("#humidity-four").text(response.list[28].main.humidity);
-        $("#wind-speed-four").text(response.list[28].wind.speed);
+        $("#temperature-four").text(
+          parseInt(response.list[28].main.temp) + "\xB0F"
+        );
+        $("#humidity-four").text(response.list[28].main.humidity + "%");
+        $("#wind-speed-four").text(response.list[28].wind.speed + "MPH");
         var iconCode = response.list[28].weather[0].icon;
         var iconImage = "http://openweathermap.org/img/w/" + iconCode + ".png";
         console.log(iconCode);
         $("#icon-image4").attr("src", iconImage);
-        // Day Five
+        // Day Five ====================================
         var fifthDay = moment(response.list[37].dt_txt).format(
           "dddd MMMM Do YYYY"
         );
         $("#five").text(fifthDay);
-        $("#temperature-five").text(parseInt(response.list[37].main.temp));
-        $("#humidity-five").text(response.list[37].main.humidity);
-        $("#wind-speed-five").text(response.list[37].wind.speed);
+        $("#temperature-five").text(
+          parseInt(response.list[37].main.temp) + "\xB0F"
+        );
+        $("#humidity-five").text(response.list[37].main.humidity + "%");
+        $("#wind-speed-five").text(response.list[37].wind.speed + "MPH");
         var iconCode = response.list[37].weather[0].icon;
         var iconImage = "http://openweathermap.org/img/w/" + iconCode + ".png";
         console.log(iconCode);
