@@ -26,7 +26,7 @@ function getAndShowWeather(city) {
   var APIKey = "c7629276d88b73d9dee17485c554906b";
   console.log(citySearch);
   var queryURL =
-    "http://api.openweathermap.org/data/2.5/weather?q=" +
+    "https://api.openweathermap.org/data/2.5/weather?q=" +
     citySearch +
     "&appid=c7629276d88b73d9dee17485c554906b" +
     "&units=imperial";
@@ -37,7 +37,7 @@ function getAndShowWeather(city) {
     // Current Day Forecast =============================
     console.log(response);
     var iconCode = response.weather[0].icon;
-    var iconImage = "http://openweathermap.org/img/w/" + iconCode + ".png";
+    var iconImage = "https://openweathermap.org/img/w/" + iconCode + ".png";
     console.log(iconCode);
     $("#icon-image").attr("src", iconImage);
     $("#temperature").text(parseInt(response.main.temp) + "\xB0F");
@@ -47,7 +47,7 @@ function getAndShowWeather(city) {
     var latitude = response.coord.lat;
     var longitude = response.coord.lon;
     var uvURL =
-      "http://api.openweathermap.org/data/2.5/uvi?appid=" +
+      "https://api.openweathermap.org/data/2.5/uvi?appid=" +
       APIKey +
       "&lat=" +
       latitude +
@@ -84,7 +84,7 @@ function getAndShowWeather(city) {
       }
       // five Day Forecast ==============================
       var forecastURL =
-        "http://api.openweathermap.org/data/2.5/forecast?q=" +
+        "https://api.openweathermap.org/data/2.5/forecast?q=" +
         citySearch +
         "&appid=c7629276d88b73d9dee17485c554906b" +
         "&units=imperial";
@@ -105,7 +105,7 @@ function getAndShowWeather(city) {
         $("#humidity-one").text(response.list[3].main.humidity + "%");
         $("#wind-speed-one").text(response.list[3].wind.speed + "MPH");
         var iconCode = response.list[3].weather[0].icon;
-        var iconImage = "http://openweathermap.org/img/w/" + iconCode + ".png";
+        var iconImage = "https://openweathermap.org/img/w/" + iconCode + ".png";
         console.log(iconCode);
         $("#icon-image1").attr("src", iconImage);
 
@@ -120,7 +120,7 @@ function getAndShowWeather(city) {
         $("#humidity-two").text(response.list[11].main.humidity + "%");
         $("#wind-speed-two").text(response.list[11].wind.speed + "MPH");
         var iconCode = response.list[11].weather[0].icon;
-        var iconImage = "http://openweathermap.org/img/w/" + iconCode + ".png";
+        var iconImage = "https://openweathermap.org/img/w/" + iconCode + ".png";
         console.log(iconCode);
         $("#icon-image2").attr("src", iconImage);
 
@@ -135,7 +135,7 @@ function getAndShowWeather(city) {
         $("#humidity-three").text(response.list[19].main.humidity + "%");
         $("#wind-speed-three").text(response.list[19].wind.speed + "MPH");
         var iconCode = response.list[19].weather[0].icon;
-        var iconImage = "http://openweathermap.org/img/w/" + iconCode + ".png";
+        var iconImage = "https://openweathermap.org/img/w/" + iconCode + ".png";
         console.log(iconCode);
         $("#icon-image3").attr("src", iconImage);
 
