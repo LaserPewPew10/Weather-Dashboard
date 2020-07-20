@@ -171,27 +171,3 @@ function getAndShowWeather(city) {
     });
   });
 }
-// FUNCTIONS
-
-// USER INPUT ==================
-
-// A users search history is saved
-// Then the current weather of that specific city will show up
-// they see the city name
-// the date
-// an icon reprenstation of weather conditions
-// the temparture
-// the humidity
-//the wind speed
-// and the UV Index
-// based on the UV index
-// the color is green for favorable
-// the color is purple for moderate
-// the color is red for severe
-// They also see the 5 day forecast of their city that they searched
-// //the date,
-//an icon representation of weather conditions,
-//the temperature,
-//and the humidity
-//If the user searches for another city, then their past city search is saved
-//The user can click on past city searches and view the weather
